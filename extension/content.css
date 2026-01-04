@@ -1,0 +1,107 @@
+/* Quick Block Button Styles */
+.quick-block-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #6B7280;
+  color: white;
+  border: none;
+  cursor: pointer;
+  opacity: 0.3;
+  transition: opacity 0.2s ease, background 0.2s ease;
+  font-size: 11px;
+  font-weight: bold;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
+}
+
+.quick-block-btn:hover {
+  opacity: 1;
+  background: #EF4444;
+}
+
+.quick-block-btn:active {
+  transform: scale(0.95);
+}
+
+/* Hidden tweet style */
+.extension-hidden {
+  display: none !important;
+}
+
+/* Fade out animation for hiding tweets */
+.extension-hiding {
+  animation: fadeOut 0.3s ease-out forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+/* Toast notification */
+.quick-block-toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(17, 24, 39, 0.95);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.quick-block-toast-message {
+  flex: 1;
+}
+
+.quick-block-toast-undo {
+  background: transparent;
+  color: #60A5FA;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.quick-block-toast-undo:hover {
+  background: rgba(96, 165, 250, 0.1);
+}
+
+/* Ensure tweet container has relative positioning */
+article[data-testid="tweet"] {
+  position: relative;
+}
