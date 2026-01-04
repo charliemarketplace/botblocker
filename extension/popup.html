@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quick Twitter Block</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 class="title">Quick Twitter Block</h1>
+      <div class="stats">
+        <span class="stat-label">Blocked:</span>
+        <span class="stat-value" id="blockedCount">0</span>
+      </div>
+    </header>
+
+    <section class="settings-section">
+      <h2 class="section-title">Settings</h2>
+
+      <div class="setting-item">
+        <label class="setting-label">
+          <span>Block Mode</span>
+          <select id="blockMode" class="setting-select">
+            <option value="hide">CSS Hide (Fast)</option>
+            <option value="native">Native Twitter Block</option>
+          </select>
+        </label>
+        <p class="setting-description">
+          CSS Hide: Instantly hides tweets (reversible)<br>
+          Native Block: Uses Twitter's block API (permanent)
+        </p>
+      </div>
+
+      <div class="setting-item">
+        <label class="setting-label">
+          <span>Button Visibility</span>
+          <select id="buttonVisibility" class="setting-select">
+            <option value="hover">Show on Hover</option>
+            <option value="always">Always Show</option>
+          </select>
+        </label>
+      </div>
+    </section>
+
+    <section class="blocked-users-section">
+      <div class="section-header">
+        <h2 class="section-title">Blocked Users</h2>
+        <div class="action-buttons">
+          <button id="exportBtn" class="btn btn-secondary" title="Export block list">
+            Export
+          </button>
+          <button id="importBtn" class="btn btn-secondary" title="Import block list">
+            Import
+          </button>
+          <button id="clearAllBtn" class="btn btn-danger" title="Clear all blocks">
+            Clear All
+          </button>
+        </div>
+      </div>
+
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search blocked users..." class="search-input">
+      </div>
+
+      <div id="blockedUsersList" class="blocked-users-list">
+        <p class="empty-message">No blocked users yet</p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="stats-row">
+        <span class="footer-stat">
+          <strong id="tweetsHiddenCount">0</strong> tweets hidden
+        </span>
+      </div>
+    </footer>
+  </div>
+
+  <input type="file" id="importFileInput" accept=".json" style="display: none;">
+
+  <script src="popup.js"></script>
+</body>
+</html>
